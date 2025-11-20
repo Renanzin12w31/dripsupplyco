@@ -1,8 +1,8 @@
 const products = [
-    { id:1, name:"Nike Air Max Plus TN", price:"R$ 150", img:"Img/airmaxplus.jpg", desc:"O clássico que domina o streetwear.", checkout:"https://seguro.dripsupplyco.store/r/A772UWY2AJ", sizes:[38,39,40,41,42,43,44,45,46] },
-    { id:2, name:"Nike Air Force 1 TN", price:"R$ 130", img:"Img/airforce1.png", desc:"Design agressivo e estiloso.", checkout:"https://seguro.dripsupplyco.store/r/DFR722LH9R", sizes:[38,39,40,41,42,43,44,45,46] },
-    { id:3, name:"Conjunto Tech Fleece", price:"R$ 349", img:"Img/Tech.jpg", desc:"Conforto premium.", checkout:"https://seguro.dripsupplyco.store/r/164S4FBCHK", sizes:["M","L","XL","2XL"] },
-    { id:4, name:"Conjunto Denim Tears", price:"R$ 299", img:"Img/denim.png", desc:"Estilo absoluto.", checkout:"https://seguro.dripsupplyco.store/r/CUZ7MKYCJX", sizes:["S","M","L","XL"] }
+    { id:1, name:"Nike Air Max Plus TN", price:"R$ 150", img:"Img/airmaxplus.jpg", desc:"O clássico que domina o streetwear.", checkout:"https://dripsupply-co.pay.yampi.com.br/r/A772UWY2AJ", sizes:[38,39,40,41,42,43,44,45,46] },
+    { id:2, name:"Nike Air Force 1 TN", price:"R$ 130", img:"Img/airforce1.png", desc:"Design agressivo e estiloso.", checkout:"https://dripsupply-co.pay.yampi.com.br/r/DFR722LH9R", sizes:[38,39,40,41,42,43,44,45,46] },
+    { id:3, name:"Conjunto Tech Fleece", price:"R$ 250", img:"Img/Tech.jpg", desc:"Conforto premium.", checkout:"https://dripsupply-co.pay.yampi.com.br/r/164S4FBCHK", sizes:["M","L","XL","2XL"] },
+    { id:4, name:"Conjunto Denim Tears", price:"R$ 250", img:"Img/denim.png", desc:"Estilo absoluto.", checkout:"https://dripsupply-co.pay.yampi.com.br/r/CUZ7MKYCJX", sizes:["S","M","L","XL"] }
 ];
 
 let cart = [];
@@ -120,3 +120,4 @@ window.addEventListener('scroll', lazyLoadImages);
 window.addEventListener('load', lazyLoadImages);
 
 renderProducts();
+

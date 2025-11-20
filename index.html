@@ -10,33 +10,42 @@
 
 <header>
     <div class="container header-content">
-        <div class="logo">DripSupplyCo</div>
-        <nav>
-            <a href="#" onclick="showHome()">Home</a>
+        <div class="logo" aria-label="DripSupplyCo">DripSupplyCo</div>
+        <nav aria-label="Navegação principal">
+            <button class="link-btn" id="homeBtn">Home</button>
         </nav>
         <div class="actions">
-            <input type="text" id="searchInput" placeholder="Buscar..." oninput="searchProducts()">
-            <button id="cartBtn">Carrinho <span id="cartCount">0</span></button>
+            <label for="searchInput" class="visually-hidden">Buscar produtos</label>
+            <input type="search" id="searchInput" placeholder="Buscar..." aria-label="Buscar produtos">
+            <button id="cartBtn" aria-haspopup="dialog" aria-controls="cartSection" aria-expanded="false">Carrinho <span id="cartCount">0</span></button>
         </div>
     </div>
 </header>
 
-<section class="hero" id="homeSection">
-    <div class="container">
-        <h1>Encontre seu estilo único</h1>
-        <p>Os melhores produtos streetwear do mercado.</p>
-    </div>
-</section>
+<main>
+    <section class="hero" id="homeSection" aria-hidden="false">
+        <div class="container">
+            <h1>Encontre seu estilo único</h1>
+            <p>Os melhores produtos streetwear do mercado.</p>
+        </div>
+    </section>
 
-<section id="productSection" class="container products"></section>
-<section id="detailSection" class="container detail-page" style="display:none;"></section>
-<section id="cartSection" class="container detail-page" style="display:none;"></section>
+    <section id="productSection" class="container products" aria-live="polite"></section>
+
+    <section id="detailSection" class="container detail-page" style="display:none;" aria-hidden="true"></section>
+
+    <!-- Carrinho como seção que aparece -->
+    <section id="cartSection" class="container cart-page" style="display:none;" role="dialog" aria-modal="false" aria-hidden="true">
+        <!-- Conteúdo é injetado via JS -->
+    </section>
+</main>
 
 <footer>
     <p>© 2025 DripSupplyCo - Todos os direitos reservados.</p>
 </footer>
 
-<div id="alertBox" class="alert-box">Produto adicionado ao carrinho!</div>
-<script src="script.js"></script>
+<div id="alertBox" class="alert-box" role="status" aria-live="polite">Produto adicionado ao carrinho!</div>
+
+<script src="script.js" defer></script>
 </body>
 </html>

@@ -1,26 +1,24 @@
 const products = [
-    { id:1, name:"Nike Air Max Plus TN", category:"tenis", price:"R$ 150", img:"Img/airmaxplus.jpg", desc:"O clássico que domina o streetwear.", checkout:"https://seguro.dripsupplyco.store/r/A772UWY2AJ", sizes:[38,39,40,41,42,43,44,45,46] },
-    { id:2, name:"Nike Air Force 1 TN", category:"tenis", price:"R$ 130", img:"Img/airforce1.png", desc:"Design agressivo e estiloso.", checkout:"https://seguro.dripsupplyco.store/r/DFR722LH9R", sizes:[38,39,40,41,42,43,44,45,46] },
-    { id:3, name:"Conjunto Tech Fleece", category:"tenis", price:"R$ 349", img:"Img/Tech.jpg", desc:"Conforto premium.", checkout:"https://seguro.dripsupplyco.store/r/164S4FBCHK", sizes:["M","L","XL","2XL"] },
-    { id:4, name:"Conjunto Denim Tears", category:"tenis", price:"R$ 299", img:"Img/denim.png", desc:"Estilo absoluto.", checkout:"https://seguro.dripsupplyco.store/r/CUZ7MKYCJX", sizes:["S","M","L","XL"] }
+    { id:1, name:"Nike Air Max Plus TN", price:"R$ 150", img:"Img/airmaxplus.jpg", desc:"O clássico que domina o streetwear.", checkout:"https://seguro.dripsupplyco.store/r/A772UWY2AJ", sizes:[38,39,40,41,42,43,44,45,46] },
+    { id:2, name:"Nike Air Force 1 TN", price:"R$ 130", img:"Img/airforce1.png", desc:"Design agressivo e estiloso.", checkout:"https://seguro.dripsupplyco.store/r/DFR722LH9R", sizes:[38,39,40,41,42,43,44,45,46] },
+    { id:3, name:"Conjunto Tech Fleece", price:"R$ 349", img:"Img/Tech.jpg", desc:"Conforto premium.", checkout:"https://seguro.dripsupplyco.store/r/164S4FBCHK", sizes:["M","L","XL","2XL"] },
+    { id:4, name:"Conjunto Denim Tears", price:"R$ 299", img:"Img/denim.png", desc:"Estilo absoluto.", checkout:"https://seguro.dripsupplyco.store/r/CUZ7MKYCJX", sizes:["S","M","L","XL"] }
 ];
 
 let cart = [];
-
 const productSection = document.getElementById("productSection");
 const detailSection = document.getElementById("detailSection");
 const cartSection = document.getElementById("cartSection");
 const homeSection = document.getElementById("homeSection");
-const sobreNosSection = document.getElementById("sobreNosSection");
 const cartCount = document.getElementById("cartCount");
 const alertBox = document.getElementById("alertBox");
 
-function renderProducts(filter=""){
+function renderProducts(){
     hideAllSections();
-    productSection.style.display="grid";
     homeSection.style.display="block";
+    productSection.style.display="grid";
     productSection.innerHTML="";
-    products.filter(p=>!filter||p.category===filter).forEach(p=>{
+    products.forEach(p=>{
         const card = document.createElement("div");
         card.className="product-card";
         card.innerHTML=`
@@ -47,7 +45,7 @@ function showDetail(id){
         <label for="sizeSelect">Selecione o tamanho:</label>
         <select id="sizeSelect">${options}</select>
         <button class="btn-buy" onclick="addToCart(${p.id})">Adicionar ao Carrinho</button>
-        <button class="btn-secondary" onclick="renderProducts()">Voltar</button>
+        <button class="btn-buy" onclick="renderProducts()">Voltar</button>
     `;
     lazyLoadImages();
 }
@@ -90,23 +88,6 @@ document.getElementById("cartBtn").addEventListener("click", ()=>{
     lazyLoadImages();
 });
 
-function showHome(){
-    hideAllSections();
-    homeSection.style.display="block";
-    productSection.style.display="grid";
-}
-
-function showContato(){
-    hideAllSections();
-    document.getElementById("contactSection").style.display="flex";
-}
-
-function showSobreNos(){
-    hideAllSections();
-    sobreNosSection.style.display="flex";
-    lazyLoadImages();
-}
-
 function searchProducts(){
     const text = document.getElementById("searchInput").value.toLowerCase();
     renderProducts();
@@ -121,8 +102,6 @@ function hideAllSections(){
     detailSection.style.display="none";
     cartSection.style.display="none";
     homeSection.style.display="none";
-    document.getElementById("contactSection").style.display="none";
-    sobreNosSection.style.display="none";
 }
 
 // Lazy load
